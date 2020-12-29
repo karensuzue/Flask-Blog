@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <title>Add new entry</title>
+    <style>
+    body {
+        font-family: sans-serif;
+    }
+
+    h1 {
+        color: blue;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 25%;
+      background-color: orange;
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+    }
+
+    li a {
+      display: block;
+      color: black;
+      padding: 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: black;
+      color: white;
+    }
+    </style>
+</head>
+
+<body>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/entries">All Entries</a></li>
+    <li><a href="/authors">Authors Directory</a></li>
+    <li><a href="/topics">Topics Directory</a></li>
+    <li><a href="/new">Post Entry</a></li>
+</ul>
+
+<div style="margin-left:30%; padding: 16px; height:500px;">
+    <h1>Add a new entry!</h1>
+
+    {% if begin %}
+        <p>
+        {% if successful_add %}
+            <span style="background-color: lightgreen;">
+        {% else %}
+            <span style="background-color: lightcoral;">
+        {% endif %}
+        {{ notice_text }}
+        </span>
+        </p>
+    {% endif %}
+
+    <form action="{{ url_for('add_entry') }}" method="post">
+        <label for="title">Title:</label>
+        <br>
+        <input type="text" id="title" name="title">
+        <br>
+        <label for="author">Author:</label>
+        <br>
+        <input type="text" id="author" name="author">
+        <br>
+        <label for="topic">Topic:</label>
+        <br>
+        <input type="text" id="topic" name="topic">
+        <br>
+        <label for="content">Content:</label>
+        <br>
+        <input type="text" id="content" name="content">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>

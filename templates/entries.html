@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <title>All Entries</title>
+    <style>
+    body {
+        font-family: sans-serif;
+    }
+
+    h1 {
+        color: blue;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 25%;
+      background-color: orange;
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+    }
+
+    li a {
+      display: block;
+      color: black;
+      padding: 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: black;
+      color: white;
+    }
+    </style>
+</head>
+
+<body>
+<ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/entries">All Entries</a></li>
+    <li><a href="/authors">Authors Directory</a></li>
+    <li><a href="/topics">Topics Directory</a></li>
+    <li><a href="/new">Post Entry</a></li>
+</ul>
+
+<div style="margin-left:30%; padding:16px; height:500px;">
+    <h1>Entries Directory</h1>
+    Here are all the entries in this blog.
+
+    {% for row in entries%}
+    <li style="padding: 0px; text-decoration: none; display: initial;">
+        <a href="{{ url_for('entry', entry_id=row['entry_id']) }}">
+            {{row['title']}}
+        </a>
+    </li>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
