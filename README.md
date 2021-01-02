@@ -1,5 +1,5 @@
 # Flask-Blog
-Blog application with Flask and SQLite. To start the application:
+A simple blogging web application built with Flask and SQLite. To start the application:
 * Run `blog_db.py` 
 * Run `browse_blog.py`  
 
